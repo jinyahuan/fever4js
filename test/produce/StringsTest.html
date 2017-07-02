@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Test html</title>
+</head>
+<body>
+<h1>Please open browser and browser's console.</h1>
+
+<script src="../../src/Strings.js"></script>
+<script src="../tools.js"></script>
+<script>
+  window.onload = function () {
+    console.log("window.common.Strings.version = %s", window.common.Strings.version);
+    console.log("common.Strings.version = %s", common.Strings.version);
+    console.log("_Strings.version = %s", _Strings.version);
+    console.log('\n');
+
+    assertEquals('_Strings.isString("asdf")==true', true, _Strings.isString("asdf"));
+    assertEquals('_Strings.isString(1111)==false', false, _Strings.isString(1111));
+    assertEquals('_Strings.isString(undefined)==false', false, _Strings.isString(undefined));
+    assertEquals('_Strings.isString(false)==false', false, _Strings.isString(false));
+    assertEquals('_Strings.isString(new String("asdf"))==false', false, _Strings.isString(new String("asdf")));
+    console.log('\n');
+
+    assertEquals('_Strings.isEmpty("")==true', true, _Strings.isEmpty(""));
+    assertEquals('_Strings.isEmpty(undefined)==false', false, _Strings.isEmpty(undefined));
+    assertEquals('_Strings.isEmpty(null)==false', false, _Strings.isEmpty(null));
+    assertEquals('_Strings.isEmpty("asdf")==false', false, _Strings.isEmpty("asdf"));
+    console.log('\n');
+
+    assertEquals('_Strings.isBlank(undefined)==true', true, _Strings.isBlank(undefined));
+    assertEquals('_Strings.isBlank(null)==true', true, _Strings.isBlank(null));
+    assertEquals('_Strings.isBlank("")==true', true, _Strings.isBlank(""));
+    assertEquals('_Strings.isBlank(" ")==true', true, _Strings.isBlank(" "));
+    assertEquals('_Strings.isBlank(" asdf ")==false', false, _Strings.isBlank(" asdf "));
+    try{
+      assertEquals('_Strings.isBlank([])==false', false, _Strings.isBlank([]));
+    }catch (ex){
+      console.error(ex + ': _Strings.isBlank([])==false ');
+    }finally {
+    }
+    console.log('\n');
+
+    assertEquals('_Strings.trim("")==""', "", _Strings.trim(""));
+    assertEquals('_Strings.trim(" ")==""', "", _Strings.trim(" "));
+    assertEquals('_Strings.trim(" asdf ")=="asdf"', "asdf", _Strings.trim(" asdf "));
+    try{
+      assertEquals('_Strings.trim([])==false', false, _Strings.trim([]));
+    }catch (ex){
+      console.error(ex + ': _Strings.trim([])==false ');
+    }finally {
+    }
+    console.log('\n');
+  }
+</script>
+</body>
+</html>

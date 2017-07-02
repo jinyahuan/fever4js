@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Test html</title>
+</head>
+<body>
+<h1>Please open browser and browser's console.</h1>
+
+<script src="../../src/Numbers.js"></script>
+<script src="../tools.js"></script>
+<script>
+  window.onload = function () {
+    console.log("window.common.Numbers.version = %s", window.common.Numbers.version);
+    console.log("common.Numbers.version = %s", common.Numbers.version);
+    console.log("_Numbers.version = %s", _Numbers.version);
+    console.log('\n');
+
+    assertEquals('_Numbers.isNumber(1111)==true', true, _Numbers.isNumber(1111));
+    assertEquals('_Numbers.isNumber(-1111)==true', true, _Numbers.isNumber(-1111));
+    assertEquals('_Numbers.isNumber(1111.001)==true', true, _Numbers.isNumber(1111.001));
+    assertEquals('_Numbers.isNumber(-1111.001)==true', true, _Numbers.isNumber(-1111.001));
+    assertEquals('_Numbers.isNumber(NaN)==true', true, _Numbers.isNumber(NaN));
+    assertEquals('_Numbers.isNumber("asdf")==false', false, _Numbers.isNumber("asdf"));
+    console.log('\n');
+
+    assertEquals('_Numbers.isStrictNumber(1111)==true', true, _Numbers.isStrictNumber(1111));
+    assertEquals('_Numbers.isStrictNumber(-1111)==true', true, _Numbers.isStrictNumber(-1111));
+    assertEquals('_Numbers.isStrictNumber(1111.001)==true', true, _Numbers.isStrictNumber(1111.001));
+    assertEquals('_Numbers.isStrictNumber(-1111.001)==true', true, _Numbers.isStrictNumber(-1111.001));
+    assertEquals('_Numbers.isStrictNumber(NaN)==false', false, _Numbers.isStrictNumber(NaN));
+    assertEquals('_Numbers.isStrictNumber("asdf")==false', false, _Numbers.isStrictNumber("asdf"));
+    console.log('\n');
+
+    assertEquals('_Numbers.toNumber("1111.001")==1111.001', 1111.001, _Numbers.toNumber("1111.001"));
+    assertEquals('_Numbers.toNumber("-1111.001")==-1111.001', -1111.001, _Numbers.toNumber("-1111.001"));
+    assertEquals('_Numbers.toNumber("asdf")==NaN', NaN, _Numbers.toNumber("asdf"));
+    console.log('\n');
+  }
+</script>
+</body>
+</html>

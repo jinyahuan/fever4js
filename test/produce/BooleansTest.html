@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Test html</title>
+</head>
+<body>
+<h1>Please open browser and browser's console.</h1>
+
+<script src="../../src/Booleans.js"></script>
+<script src="../tools.js"></script>
+<script>
+  window.onload = function () {
+    console.log("window.common.Booleans.version = %s", window.common.Booleans.version);
+    console.log("common.Booleans.version = %s", common.Booleans.version);
+    console.log("_Booleans.version = %s", _Booleans.version);
+    console.log('\n');
+
+    assertEquals('_Booleans.isBoolean(1)==true', true, _Booleans.isBoolean(1));
+    assertEquals('_Booleans.isBoolean(0)==true', true, _Booleans.isBoolean(0));
+    assertEquals('_Booleans.isBoolean(true)==true', true, _Booleans.isBoolean(true));
+    assertEquals('_Booleans.isBoolean(false)==true', true, _Booleans.isBoolean(true));
+    assertEquals('_Booleans.isBoolean("0")==false', false, _Booleans.isBoolean("0"));
+    assertEquals('_Booleans.isBoolean("1")==false', false, _Booleans.isBoolean("1"));
+    assertEquals('_Booleans.isBoolean("true")==false', false, _Booleans.isBoolean("true"));
+    assertEquals('_Booleans.isBoolean("false")==false', false, _Booleans.isBoolean("false"));
+    console.log('\n');
+
+    assertEquals('_Booleans.isStrictBoolean(true)==true', true, _Booleans.isStrictBoolean(true));
+    assertEquals('_Booleans.isStrictBoolean(false)==true', true, _Booleans.isStrictBoolean(true));
+    assertEquals('_Booleans.isStrictBoolean(1)==false', false, _Booleans.isStrictBoolean(1));
+    assertEquals('_Booleans.isStrictBoolean(0)==false', false, _Booleans.isStrictBoolean(0));
+    assertEquals('_Booleans.isStrictBoolean("0")==false', false, _Booleans.isStrictBoolean("0"));
+    assertEquals('_Booleans.isStrictBoolean("1")==false', false, _Booleans.isStrictBoolean("1"));
+    assertEquals('_Booleans.isStrictBoolean("true")==false', false, _Booleans.isStrictBoolean("true"));
+    assertEquals('_Booleans.isStrictBoolean("false")==false', false, _Booleans.isStrictBoolean("false"));
+    console.log('\n');
+
+    assertEquals('_Booleans.enforceToBoolean(1)==true', true, _Booleans.enforceToBoolean(1));
+    assertEquals('_Booleans.enforceToBoolean(true)==true', true, _Booleans.enforceToBoolean(true));
+    assertEquals('_Booleans.enforceToBoolean("hello")==true', true, _Booleans.enforceToBoolean("hello"));
+    assertEquals('_Booleans.enforceToBoolean([])==true', true, _Booleans.enforceToBoolean([]));
+    assertEquals('_Booleans.enforceToBoolean(new Date())==true', true, _Booleans.enforceToBoolean(new Date()));
+    assertEquals('_Booleans.enforceToBoolean(undefined)==false', false, _Booleans.enforceToBoolean(undefined));
+    assertEquals('_Booleans.enforceToBoolean(null)==false', false, _Booleans.enforceToBoolean(null));
+    assertEquals('_Booleans.enforceToBoolean("")==false', false, _Booleans.enforceToBoolean(""));
+    assertEquals('_Booleans.enforceToBoolean(NaN)==false', false, _Booleans.enforceToBoolean(NaN));
+    assertEquals('_Booleans.enforceToBoolean(0)==false', false, _Booleans.enforceToBoolean(0));
+    assertEquals('_Booleans.enforceToBoolean(false)==false', false, _Booleans.enforceToBoolean(false));
+    console.log('\n');
+  }
+</script>
+</body>
+</html>
