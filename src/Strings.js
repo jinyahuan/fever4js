@@ -51,7 +51,7 @@
     /**
      * Remove {@param str} any leading and trailing whitespace.
      *
-     * @param str 一个字符串
+     * @param str
      * @returns {string} {@param str} removed any leading and trailing whitespace, or original {@param str}.
      */
     trim: function (str) {
