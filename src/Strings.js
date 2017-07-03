@@ -44,6 +44,9 @@
      * @returns {boolean} true if {@param str} is undefined, null, whitespace, empty(length is 0); otherwise false.
      */
     isBlank: function (str) {
+      /* Via (undefined == null) = true, get (str == undefined) or (str == null) = (str == undefined || str == null).
+       * And (str == undefined || str == null) just for comfortable.
+       */
       return (str == undefined || str == null)
            || (this.trim(str).length == 0);
     },
