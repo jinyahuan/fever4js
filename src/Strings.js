@@ -9,6 +9,10 @@
 
   const STRING_TYPE_NAME = 'string';
 
+  var _Objects = w._Objects;
+  if (_Objects == undefined)
+    throw '"Strings.js" requires "Objects.js", and must be included before "Strings.js"';
+
   var Strings = {
     version: "1.0.0",
 
@@ -44,11 +48,8 @@
      * @returns {boolean} true if {@param str} is undefined, null, whitespace, empty(length is 0); otherwise false.
      */
     isBlank: function (str) {
-      /* Via (undefined == null) = true, get (str == undefined) or (str == null) = (str == undefined || str == null).
-       * And (str == undefined || str == null) just for comfortable.
-       */
-      return (str == undefined || str == null)
-           || (this.trim(str).length == 0);
+      return _Objects.isUndefinedOrNull(str)
+              || (this.trim(str).length == 0);
     },
 
     /**

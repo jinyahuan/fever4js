@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Test html</title>
+</head>
+<body>
+<h1>Please open browser and browser's console.</h1>
+
+<script src="../../src/Objects.js"></script>
+<script src="../tools.js"></script>
+<script>
+  window.onload = function () {
+    console.log("window.common.Objects.version = %s", window.common.Objects.version);
+    console.log("common.Objects.version = %s", common.Objects.version);
+    console.log("_Objects.version = %s", _Objects.version);
+    console.log('\n');
+
+    assertEquals('_Objects.isObject(null)==true', true, _Objects.isObject(null));
+    assertEquals('_Objects.isObject([])==true', true, _Objects.isObject([]));
+    assertEquals('_Objects.isObject(new Date())==true', true, _Objects.isObject(new Date()));
+    assertEquals('_Objects.isObject(undefined)==false', false, _Objects.isObject(undefined));
+    assertEquals('_Objects.isObject("asdf")==false', false, _Objects.isObject("asdf"));
+    assertEquals('_Objects.isObject(111.001)==false', false, _Objects.isObject(111.001));
+    assertEquals('_Objects.isObject(false)==false', false, _Objects.isObject(false));
+    assertEquals('_Objects.isObject(function(){})==false', false, _Objects.isObject(function(){}));
+    console.log('\n');
+
+    assertEquals('_Objects.isUndefinedOrNull(undefined)==true', true, _Objects.isUndefinedOrNull(undefined));
+    assertEquals('_Objects.isUndefinedOrNull(null)==true', true, _Objects.isUndefinedOrNull(null));
+    assertEquals('_Objects.isUndefinedOrNull(new Date())==false', false, _Objects.isUndefinedOrNull(new Date()));
+    assertEquals('_Objects.isUndefinedOrNull("")==false', false, _Objects.isUndefinedOrNull(""));
+    assertEquals('_Objects.isUndefinedOrNull(111.001)==false', false, _Objects.isUndefinedOrNull(111.001));
+    assertEquals('_Objects.isUndefinedOrNull(false)==false', false, _Objects.isUndefinedOrNull(false));
+    assertEquals('_Objects.isUndefinedOrNull(function(){})==false', false, _Objects.isUndefinedOrNull(function(){}));
+    console.log('\n');
+  }
+</script>
+</body>
+</html>

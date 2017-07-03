@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Test html</title>
+</head>
+<body>
+<h1>Please open browser and browser's console.</h1>
+
+<script src="../../src/Objects.js"></script>
+<script src="../../src/Arrays.js"></script>
+<script src="../tools.js"></script>
+<script>
+  window.onload = function () {
+    console.log("window.common.Arrays.version = %s", window.common.Arrays.version);
+    console.log("common.Arrays.version = %s", common.Arrays.version);
+    console.log("_Arrays.version = %s", _Arrays.version);
+    console.log('\n');
+
+    assertEquals('_Arrays.isArray([])==true', true, _Arrays.isArray([]));
+    assertEquals('_Arrays.isArray(null)==false', false, _Arrays.isArray(null));
+    assertEquals('_Arrays.isArray(new Date())==false', false, _Arrays.isArray(new Date()));
+    assertEquals('_Arrays.isArray(undefined)==false', false, _Arrays.isArray(undefined));
+    assertEquals('_Arrays.isArray("asdf")==false', false, _Arrays.isArray("asdf"));
+    assertEquals('_Arrays.isArray(111.001)==false', false, _Arrays.isArray(111.001));
+    assertEquals('_Arrays.isArray(false)==false', false, _Arrays.isArray(false));
+    assertEquals('_Arrays.isArray(function(){})==false', false, _Arrays.isArray(function(){}));
+    console.log('\n');
+
+    assertEquals('_Arrays.isEmpty([])==true', true, _Arrays.isEmpty([]));
+    assertEquals('_Arrays.isEmpty(undefined)==false', false, _Arrays.isEmpty(undefined));
+    assertEquals('_Arrays.isEmpty(null)==false', false, _Arrays.isEmpty(null));
+    assertEquals('_Arrays.isEmpty(["a", "s"])==false', false, _Arrays.isEmpty(["a", "s"]));
+    console.log('\n');
+  }
+</script>
+</body>
+</html>
