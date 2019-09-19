@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../src/IpConverter.js"></script>
+</head>
+<body>
+
+<script>
+    window.onload = function () {
+        console.log("INET_ATON = %s", inetAton("255.255.255.255", 0));
+        console.log("INET_ATON = %s", inetAton("127.0.0.0", 0));
+        console.log("INET_ATON = %s", inetAton("127.a.0.0", -1));
+        console.log("INET_ATON = %s", inetAton("255.255.255.256", 0));
+        console.log("INET_ATON = %s", inetAton("255.-1.255.256", 0));
+        console.log("INET_ATON = %s", inetAton(null, 0));
+        console.log("INET_ATON = %s", inetAton(undefined, 0));
+        console.log("INET_ATON = %s", inetAton(1, 0));
+        console.log("INET_ATON = %s", inetAton([], 0));
+        console.log("-----------------------");
+        console.log("INET_NTOA = %s", inetNtoa(4294967295, ""));
+        console.log("INET_NTOA = %s", inetNtoa(2130706432, ""));
+        console.log("INET_NTOA = %s", inetNtoa(0, ""));
+        console.log("INET_NTOA = %s", inetNtoa(-1, "-1"));
+        console.log("INET_NTOA = %s", inetNtoa(4294967296, "4294967296"));
+        console.log("INET_NTOA = %s", inetNtoa(null, "null"));
+        console.log("INET_NTOA = %s", inetNtoa(undefined, "undefined"));
+        console.log("INET_NTOA = %s", inetNtoa("", "empty"));
+        console.log("INET_NTOA = %s", inetNtoa([], "array"));
+    }
+</script>
+</body>
+</html>
